@@ -1,0 +1,126 @@
+CREATE DATABASE car_rental_system;
+USE car_rental_system;
+
+CREATE TABLE car_system (
+plate_id VARCHAR(10) PRIMARY KEY,
+`year` INT, model VARCHAR(100),
+seating_capacity INT, 
+fuel_type VARCHAR(50), 
+mileage INT, body_type VARCHAR(50),
+transmission VARCHAR(100),
+color VARCHAR(50),
+daily_rental_price DECIMAL(12,3),
+car_status ENUM('Active', 'Out of service', 'Rented')
+);
+CREATE TABLE special_features (plate_id VARCHAR(10) PRIMARY KEY, additional_features VARCHAR(500));    
+ALTER TABLE special_features ADD FOREIGN KEY(plate_id) REFERENCES car_system(plate_id);
+
+ALTER TABLE car_system ADD COLUMN office_id INT;
+ALTER TABLE car_system ADD const office_id INT;
+
+--> omniasss
+
+USE car_rental_system;
+
+CREATE TABLE customer (
+customer_id int(15) PRIMARY KEY,
+fname varchar(50),
+lname varchar(50),
+address varchar(50),
+phone_number int(15) ,
+email varchar(255) UNIQUE KEY,
+licenseId int UNIQUE KEY,
+licenseExpiryDate date,
+`password` varchar(255), 
+registration_date timestamp default CURRENT_TIMESTAMP
+);
+
+CREATE TABLE office (
+office_id int AUTO_INCREMENT PRIMARY KEY,
+location varchar(50),
+contact_number int(15)    
+);
+
+CREATE TABLE reservation (
+customer_id varchar(255) ,
+car_id VARCHAR(10) , 
+start_date date,
+end_date date,
+reservation_status ENUM('confirmed','cancelled') DEFAULT 'confirmed',
+reservation_date timestamp default CURRENT_TIMESTAMP,
+total_payment int,
+PRIMARY KEY (customer_id , car_id,reservation_date),
+FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
+FOREIGN KEY (car_id) REFERENCES car_system(plate_id)
+);
+
+
+
+ALTER table car_system 
+add CONSTRAINT FOREIGN KEY car_system(office_id) REFERENCES office(office_id);
+
+DML:
+
+
+INSERT INTO car_system (plate_id, `year`, model, seating_capacity, fuel_type, mileage, body_type, transmission, color, daily_rental_price, car_status, office_id)
+VALUES
+('ABC1234', 2020, 'Toyota Corolla', 5, 'Petrol', 30000, 'Sedan', 'Automatic', 'Blue', 50.00, 'Active', 1),
+('XYZ9876', 2018, 'Honda Civic', 5, 'Diesel', 45000, 'Sedan', 'Manual', 'Red', 45.00, 'Rented', 2),
+('LMN4567', 2021, 'Tesla Model 3', 5, 'Electric', 15000, 'Sedan', 'Automatic', 'White', 80.00, 'Active', 3),
+('JKL1239', 2019, 'Ford Escape', 7, 'Hybrid', 50000, 'SUV', 'Automatic', 'Black', 65.00, 'Out of service', 1),
+('PQR5678', 2022, 'BMW X5', 5, 'Petrol', 10000, 'SUV', 'Automatic', 'Gray', 90.00, 'Active', 2);
+
+INSERT INTO offices (office_id, location, contact_number)
+VALUES
+(1, 'Cairo', 1237890),
+(2, 'Alexandria', 9876540),
+(3, 'Giza', 5551567),
+(4, 'Port Said', 4449843),
+(5, 'Siwa', 3336723);
+
+INSERT INTO customer (customer_id,fname, lname, address, phone_number, email, licenseId, licenseExpiryDate, `password`, registration_date)
+VALUES
+('123456789','John', 'Doe', '123 Elm Street, Springfield', 98765410, 'john.doe@example.com', 101, '2025-12-31', '$2y$10$H5Tz5uYYP.E3H6oHZs9jZe32U2cDWsRZk9mVHGecwxrV.PZmsO76e', CURRENT_TIMESTAMP),
+('283456789','Jane', 'Smith', '456 Oak Avenue, Riverdale', 87652109, 'jane.smith@example.com', 102, '2024-11-30', '$2y$10$.uMmEgfFtS16rBpYP5ro1Oxlk6smFSeychZklmCqIQ0Bn2RLhXq/q', CURRENT_TIMESTAMP),
+('373456788','Michael', 'Johnson', '789 Pine Road, Metropolis', 76321098, 'michael.j@example.com', 103, '2026-01-15', '$2y$10$JPlQ6ib/pqY3ixKtCX1hYeNvr7T1ASJ/hWG3DmyCgRlMco8hxX41e', CURRENT_TIMESTAMP),
+('416567812','Emily', 'Davis', '321 Maple Lane, Gotham', 65432187, 'emily.d@example.com', 104, '2023-08-20', '$2y$10$dy8Gt9.vQi8Qj0gFZdrfUOMexP9ZzFCPSF7PaedQ3TWz7eNsSmFkm', CURRENT_TIMESTAMP),
+('533336789','Chris', 'Brown', '654 Cedar Drive, Star City', 54321876, 'chris.brown@example.com', 105, '2027-07-05', '$2y$10$4Ilnt0gED2GFG/YcT.WZgeVZexMmNdMN2DJL3boqIW5x4fBQ2m4ei', CURRENT_TIMESTAMP);
+
+
+INSERT INTO car_system (plate_id, year, model, seating_capacity, fuel_type, mileage, body_type, transmission, color, daily_rental_price, office_id)
+VALUES
+('XYZ777', 2019, 'Honda Civic', 5, 'Petrol', 20000, 'Sedan', 'Manual', 'Black', 45.00, 2),
+('PQR111', 2018, 'Chevrolet Malibu', 5, 'Petrol', 30000, 'Sedan', 'Automatic', 'Silver', 40.00, 3),
+('DEF234', 2022, 'Nissan Altima', 5, 'Petrol', 8000, 'Sedan', 'Automatic', 'Red', 55.00, 1),
+('GHI567', 2020, 'Hyundai Tucson', 5, 'Diesel', 15000, 'SUV', 'Automatic', 'Gray', 65.00, 2),
+('JKL890', 2017, 'Jeep Cherokee', 5, 'Petrol', 35000, 'SUV', 'Manual', 'Green', 70.00, 3),
+('TUV135', 2023, 'Tesla Model 3', 5, 'Electric', 5000, 'Sedan', 'Automatic', 'White', 100.00, 1),
+('OPQ246', 2019, 'Volkswagen Passat', 5, 'Petrol', 25000, 'Sedan', 'Automatic', 'Blue', 48.00, 2),
+('RST369', 2021, 'Mazda CX-5', 5, 'Diesel', 10000, 'SUV', 'Manual', 'Black', 62.00, 3);
+
+INSERT INTO car_system (plate_id, year, model, seating_capacity, fuel_type, mileage, body_type, transmission, color, daily_rental_price, office_id)
+VALUES
+('AAA234', 2022, 'Nissan Altima', 5, 'Petrol', 8000, 'Hatchback', 'Automatic', 'Red', 55.00, 1),
+('ABC567', 2020, 'Hyundai Tucson', 5, 'Diesel', 15000, 'Hatchback', 'Automatic', 'Gray', 65.00, 2),
+('JKN890', 2017, 'Jeep Cherokee', 5, 'Petrol', 35000, 'Hatchback', 'Manual', 'Green', 70.00, 3),
+('ZZZ135', 2023, 'Tesla Model 3', 5, 'Electric', 5000, 'Pickup Trucks', 'Automatic', 'White', 100.00, 1),
+('FFF246', 2019, 'Volkswagen Passat', 5, 'Petrol', 25000, 'Pickup Trucks', 'Automatic', 'Blue', 48.00, 2),
+('PGS369', 2021, 'Mazda CX-5', 5, 'Diesel', 10000, 'Coupe', 'Manual', 'yellow', 62.00, 3);
+INSERT INTO car_system (plate_id, year, model, seating_capacity, fuel_type, mileage, body_type, transmission, color, daily_rental_price, office_id)
+VALUES
+('CAR001', 2022, 'Smart ForTwo', 2, 'Electric', 10000, 'Coupe', 'Automatic', 'Red', 30.00, 1),
+('CAA011', 2022, 'Smart ForTwo', 2, 'Diesel', 10000, 'Coupe', 'Manual', 'Black', 30.00, 1),
+('SQR201', 2022, 'Smart ForTwo', 2, 'Gasoline', 10000, 'Coupe', 'Hybrid', 'blue', 30.00, 1);
+
+INSERT INTO car_system (plate_id, year, model, seating_capacity, fuel_type, mileage, body_type, transmission, color, daily_rental_price, office_id)
+VALUES
+('VAN001', 2021, 'Ford Transit', 9, 'Diesel', 25000, 'MUV', 'Manual', 'White', 120.00, 3);
+
+INSERT INTO customer (customer_id, fname, lname, address, phone_number, email, licenseId, licenseExpiryDate, password, registration_date)
+VALUES
+('5432123456789', 'Alice', 'Green', '789 Walnut Street, Smallville', 5678901234, 'alice.green@example.com', 106, '2025-06-15', '$2y$10$ZQzLE5FslIMWoWvOMXnBCONNFClGnQRi8SmrNxmrDnAV2Q8orDs5i', CURRENT_TIMESTAMP),
+('9876543210123', 'Bob', 'White', '123 Birch Lane, Pleasantville', 6789012345, 'bob.white@example.com', 107, '2026-03-10', '$2y$10$dMK8N58oD14uo4lyv/oGH.EIMZ8gJmA0AhZhlyX3k7jz2Fhxrxd.y', CURRENT_TIMESTAMP),
+('1122334455667', 'Catherine', 'Black', '456 Palm Avenue, River City', 7890123456, 'catherine.black@example.com', 108, '2027-09-20', '$2y$10$6WNQtiLg7RQ1FoFrleZKCeP8ReRJfHgMnwSby.GW.yXZEk6w8GSC6', CURRENT_TIMESTAMP),
+('9988776655443', 'David', 'Gray', '321 Chestnut Road, Sunnyvale', 8901234567, 'david.gray@example.com', 109, '2024-11-25', '$2y$10$T3E15xQC.svKtpbG3S1zzOuEbE/3bKD5McQZyO6hkcM05R6wHJ68m', CURRENT_TIMESTAMP),
+('6677889900112', 'Eva', 'Brown', '654 Cypress Boulevard, Hill Valley', 9012345678, 'eva.brown@example.com', 110, '2025-02-14', '$2y$10$Qu8xljST8DfeuH.jJhpymuHaRuH3/VedNPMowfECSgnwGzFXrF1Si', CURRENT_TIMESTAMP);
+
