@@ -1,0 +1,105 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("car3.png") no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(6px);
+}
+#signupForm {
+    width: 90%;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 5px solid rgba(225, 225, 225, .2);
+    backdrop-filter: blur(10px);
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+#loginForm{
+    width: 90%;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 5px solid rgba(225, 225, 225, .2);
+    backdrop-filter: blur(200px);
+    opacity: 3;
+    color: white;
+    border-radius: 60px;
+    padding: 50px 10px 10px 10px;
+    display: block;    
+
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.input-container {
+    margin: 15px 0;
+    width: 100%;
+}
+
+.input-container input {
+    width: calc(100% - 20px);
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid rgba(225, 225, 225, 0.4);
+    border-radius: 10px;
+    color: white;
+    background: transparent;
+    margin: 0 auto;
+}
+
+.input-container input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+.inline-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    flex: 1;
+    font-size: 14px;
+    line-height: 2;
+    text-align: center;
+}
+
+#button {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    color: gray;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.exp_date_container{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    flex: 1;
+    font-size: 15px;
+    text-align: center;
+}
+#button:hover {
+    background-color: lightgray;
+}
+
+p {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+a {
+    color: lightblue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
