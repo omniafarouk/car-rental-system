@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../style.css"/>
+    <script defer src="./signupScript.js"></script>
+</head>
+<body>
+<form  id="signupForm" name='signform' action="./signupSubmit.php" method="post">
+  <h2>Sign Up</h2>
+  <div id="name" class="input-container inline-container">
+    <input placeholder="First Name" id="fname" name="fname" value=""><br>
+    <input placeholder="Last Name" id="lname" name="lname" value=""><br>
+  </div>
+  <div class="input-container">
+    <input placeholder="Email" type="email" id="email" name="email" value=""><br>
+  </div>
+  <div class="input-container">
+    <input placeholder="Phone Number" id="phone" name="phone" value=""><br>
+  </div>
+  <div class="input-container">
+    <input placeholder="Id" id="id" name="id" value=""><br>
+  </div>
+  </div>
+  <div class="input-container">
+    <input placeholder="Address" id="address" name="address" value=""><br>
+  </div> 
+  <div class="input-container">
+    <input placeholder="License ID" id="licenseId" type="number" name="licenseId" value=""><br>
+  </div>
+  </div>
+  <div class="input-container exp_date_container">
+    <label for="exp_date">License Expiry Date</label>
+    <input type="date" placeholder="License Expiry Date" type="date" id="exp_date" name="exp_date" value=""><br>
+  </div>
+  <div class="input-container">
+    <input placeholder="Password" type="password" id="password" name="password" value="" ><br>
+  </div>
+  <div class="input-container">
+    <input placeholder="Confirm Password" type="password" id="confirmPass" name="confirmPass" value=""><br>
+  </div>
+  <input type="submit" id ="button" name="signup" value="Sign Up"><br>
+</form> 
+</body>
+</html>

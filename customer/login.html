@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <script defer src="./loginScript.js">alert('welcome')</script>
+  
+</head> 
+
+<body>
+  <form  id="loginForm" name='myform' action="./loginSubmit.php" method="post">
+    <h2>Login</h2>
+    <div class="input-container">
+      <input placeholder="Email" id="email" name="email" value=""><br>
+    </div>
+    <div class="input-container">
+      <input placeholder="Password" type="password" id="password" name="password" value=""><br>
+    </div>
+  
+    <input type="submit" id ="button" name="login" value="Login"><br>
+    <p>Don't have an account? <a href="./signup.html">Register</a></p>
+    
+  </form> 
+</body>
+</html>

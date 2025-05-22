@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Dashboard</title>
+    <link rel="stylesheet" href="./dashboardStyle.css"/>
+    <script defer src="./dashboardScript.js"></script>
+</head>
+<body>
+    <header class ="dashboard">
+        <div class="container" >
+            <div class="logo">Dashboard</div>
+            <nav>
+                <ul>
+                    <li><a href="./returnReservation.html">Return Reservation</a></li>
+                    <li><a href="./login.html">log out</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Rate Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">            
+        <form id="searchForm">
+            <div class="form-group">
+                 <h1>Search Cars available</h1>
+                    <div class="inline-container">
+                        <input id="model" type="text" placeholder="Model">
+                        <input id="year" type="text" placeholder="Year">
+                    </div>  
+                    <input id="car_id" type="text" placeholder="Plate ID">
+                    <input id="capacity" type="number" placeholder="Seating Capacity">
+                    <select id="fuel" name="Fuel Type" >
+                        <option value="">Select Fuel Type</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Gasoline">Gasoline</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
+                    <input id="mileage" type="number" placeholder="Mileage (km)">
+                    <select id="bodyType" name="Body Type">
+                        <option value="">Select Body Type</option>
+                        <option value="Hatchback">Hatchback</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="SUV">SUV</option>
+                        <option value="MUV">MUV</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Pickup Trucks">Pickup Trucks</option>
+                        <option value="Convertibles">Convertibles</option>
+                      </select>
+                    <select id="transmission" name="Transmission">
+                        <option value="">Select Transmission</option>
+                        <option value="Manual">Manual</option>
+                        <option value="Automatic">Automatic</option>
+                        <option value="Automated Manual(AM)">Automated Manual(AM)</option>
+                        <option value="Continuously Variable(CVT)">Continuously Variable(CVT)</option>
+                    </select>
+                    <input id="color" type="text" placeholder="Color">
+                    <input id="price" type="number" placeholder="Daily Rental Price (EGP)">
+                    <input id="officeLocation" type="text" placeholder="Location"> 
+                    <div class="inline-container">
+                        <label for="startdate" > Start Date : </label> 
+                        <input id="startDate" type="date" required> 
+                        <label for="enddate"> End Date : </label> 
+                        <input id="endDate" type="date" > 
+                    </div>
+                </div>
+                <button type="submit">Search</button>
+        </form>
+        <div id="results" class="results" style="color: #007bff"></div>
+    </div>
+</body>
+</html>

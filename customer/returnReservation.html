@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Dashboard</title>
+    <link rel="stylesheet" href="../staff/search.css"/>
+    <script defer src="./returnReservationScript.js"></script>
+</head>
+<body>
+    <header class ="dashboard">
+        <div class="container" >
+            <div class="logo">Return Reservation</div>
+            <nav>
+                <ul>
+                    <li><a href="./Dashboard.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">            
+        <form id="searchForm">
+            <div class="form-group">
+                <div id="date" class="input-container inline-container">
+                    <h4>Start Date</h4>
+                    <input type="date" placeholder="Start Date" id="sdate" name="sdate" value=""><br>
+                    <h4>End Date</h4>
+                    <input type="date" placeholder="End Date" id="edate" name="edate" value="">
+                </div>
+                <input type="text" placeholder="Car ID" id="carId" name="carId" value="">
+                <div id="date2" class="input-container inline-container">
+                    <h4>Reservation Date</h4>
+                    <input type="date" placeholder="Reservation Date" id="rdate" name="rdate" value="">
+                </div>
+            </div>
+            <button type="submit">Return</button>
+        </form>
+        <div id="results" class="results" style="color: #007bff"></div>
+    </div>
+</body>
+</html>
