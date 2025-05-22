@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Dashboard</title>
+    <link rel="stylesheet" href="./search.css"/>
+    <script defer src="./searchByCustomerScript.js"></script>
+</head>
+<body>
+    <header class ="dashboard">
+        <div class="container" >
+            <div class="logo">Search Customer</div>
+            <nav>
+                <ul>
+                    <li><a href="./Dashboard.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">            
+        <form id="searchForm">
+            <div class="form-group">
+                <div id="name" class="input-container inline-container">
+                    <input placeholder="First Name" id="fname" name="fname" value=""><br>
+                    <input placeholder="Last Name" id="lname" name="lname" value="">
+                </div>
+                <input placeholder="email" id="email" name="email" value="">
+                <input placeholder="Phone Number" id="phone" name="phone" type="number" value="">
+                <input placeholder="Id" id="id" name="id" type="number" value="">
+                <input placeholder="Address" id="address" name="address" value="">
+                <input placeholder="License ID" id="licenseId" type="number" name="licenseId" value="">
+                <div class ="inline-container">
+                <h4> Expiry Date : </h4> 
+                <input type="date" placeholder="License Expiry Date" type="date" id="exp_date" name="exp_date" value="">
+                </div>
+            </div>
+                <button type="submit">Search</button>
+        </form>
+        <div id="results" class="results" style="color: #007bff"></div>
+    </div>
+</body>
+</html>

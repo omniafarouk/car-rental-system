@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Dashboard</title>
+    <link rel="stylesheet" href="dashboardStyle.css"/>
+    <script defer src="dashboard-js.js"></script>
+</head>
+<body>
+    <!-- Dashboard -->
+    <header class="dashboard">
+        <div class="logo">Dashboard</div>
+        <nav>
+            <button id="register">Register New Car</button>
+            <a href="#reports">Reports</a>
+            <a href="./searchByCarIndex.html">Search Car</a>
+            <a href="./searchByCustomerIndex.html">Search Customer</a>
+            <a href="#settings">Settings</a>
+        </nav>
+        <div class="user">Welcome, User</div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="card">
+            <h3>Overview</h3>
+            <p>This section contains an overview of your dashboard.</p>
+        </div>
+        <div id="reports" class="card">
+            <h3>Reports</h3>
+            <p>View your latest reports here.</p>
+        </div>
+        <div id="analytics" class="card">
+            <h3>Analytics</h3>
+            <p>Explore analytics and insights.</p>
+        </div>
+        <div id="settings" class="card">
+            <h3>Settings</h3>
+            <p>Manage your account settings.</p>
+        </div>
+    </div>
+    <div class="popup">
+        <div class="popup-content">
+            <img src="../close-icon-13577.png" alt="Close" id="close">
+            <h1 id="popup-h1">Register a new car</h1>
+            <div class="inline-container">
+                <input id="model" type="text" placeholder="Model">
+                <input id="year" type="text" placeholder="Year">
+            </div>  
+            <input id="plateID" type="text" placeholder="Plate ID">
+            <input id="capacity" type="number" placeholder="Seating Capacity">
+            <select id="fuel" name="Fuel Type" >
+                
+                <option value="diesel">Diesel</option>
+                <option value="gasoline">Gasoline</option>
+                <option value="electric">Electric</option>
+                <option value="hybrid">Hybrid</option>
+            </select>
+            <input id="mileage" type="number" placeholder="Mileage (km)">
+            <select id="bodyType" name="Body Type">
+                <option value="hatchback">Hatchback</option>
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="muv">MUV</option>
+                <option value="coupe">Coupe</option>
+                <option value="truck">Pickup Trucks</option>
+                <option value="convert">Convertibles</option>
+              </select>
+            <select id="transmission" name="Transmission">
+                <option value="manual">Manual</option>
+                <option value="auto">Automatic</option>
+                <option value="am">Automated Manual(AM)</option>
+                <option value="cvt">Continuously Variable(CVT)</option>
+            </select>
+            <input id="color" type="text" placeholder="Color">
+            <input id="price" type="number" placeholder="Daily Rental Price (EGP)">
+            <input id="officeID" type="number" placeholder="Office Id">
+            <input type="button" id="submit" value="Register">
+
+        </div>
+    </div>
+</body>
+</html>

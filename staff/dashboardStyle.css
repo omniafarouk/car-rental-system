@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dashboard Navbar */
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.dashboard nav {
+    display: flex;
+    gap: 15px;
+}
+
+.dashboard nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.dashboard nav a:hover {
+    background-color: #34495e;
+}
+
+.dashboard .user {
+    font-size: 1em;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+    background-color: #ecf0f1;
+    min-height: 100vh;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.card p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+.popup{
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+}
+.popup-content{
+    height: 50%;
+    width: 50%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 30px;
+    position: relative;
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks children vertically */
+    justify-content: center; /* Centers inputs vertically */
+    align-items: center; /* Centers inputs horizontally */
+}
+input{
+    display: block;
+    margin-bottom: 10px; /* Optional: Adds spacing between input fields */
+    width: 90%;
+    height: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding-left: 10px;
+    
+}
+
+.inline-container{
+    display: flex; /* Ensures children are aligned horizontally */
+    gap: 10px; /* Optional: Adds spacing between .model and .year */
+    width: 92%;
+}
+#close{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px; /* Set desired width */
+    height: 30px; /* Set desired height */
+    background-color: white;
+    border-radius: 50%;   
+    cursor: pointer;
+ 
+}
+#submit:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
